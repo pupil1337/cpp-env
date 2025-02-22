@@ -1,17 +1,18 @@
-#include "ref.hpp"
-#include <cstdio>
 #include <iostream>
 
-void func(int a) {
-	printf("func...");
+#include "ref.hpp"
+
+void test_ref() {
+	Ref<int> a(new int(55)); // = Ref<int>(new int(55));
+	std::cout << **a << std::endl;
+
+	// Ref<int> b = Ref<int>(*a); 错误 别这样写
+	Ref<int> b = a;
+	std::cout << **b << std::endl;
 }
 
 int main() {
-	Ref<int> t;
-	std::cout << t.geta() << std::endl;
+	test_ref();
 
-	func(1);
-	return 0;
-	std::cout << "run main... and exit." << std::endl;
 	return 0;
 }
