@@ -1,0 +1,11 @@
+# C/C++
+*.o
+
+# Python
+__pycache__/
+
+# 构建系统
+compile_commands.json
+
+# SCons
+.sconsign*.dblite

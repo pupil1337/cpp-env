@@ -1,0 +1,30 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+
+	"extensions": {
+		"recommendations": [
+			"ms-vscode.cpptools",
+			"xaver.clang-format",
+			"llvm-vs-code-extensions.vscode-clangd",
+			"vadimcn.vscode-lldb",
+			"editorconfig.editorconfig",
+			"ms-python.python"
+		]
+	},
+
+	"settings": {
+		"editor.defaultFormatter": "xaver.clang-format",
+		"editor.formatOnSave": true,
+		"C_Cpp.intelliSenseEngine": "disabled",
+		"clangd.arguments": [
+			"--compile-commands-dir=${workspaceFolder}",
+			"--background-index",
+			"--clang-tidy",
+			"--header-insertion=iwyu"
+		]
+	}
+}

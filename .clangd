@@ -1,0 +1,52 @@
+# 参考: .clangd配置 https://clangd.llvm.org/config or https://github.com/llvm/llvm-project/tree/main/clang-tools-extra/clangd
+# clangd.arguments https://github.com/llvm/llvm-project/blob/main/clang-tools-extra/clangd/tool/ClangdMain.cpp
+
+---
+# 索引
+Index:
+  Background: Build
+
+# 诊断
+Diagnostics:
+  UnusedIncludes: Strict
+  MissingIncludes: Strict
+
+# 完成
+Completion:
+  AllScopes: Yes
+
+# 镶嵌提示
+InlayHints:
+  BlockEnd: Yes
+  Designators: Yes
+  Enabled: Yes
+  ParameterNames: Yes
+  DeducedTypes: Yes
+  TypeNameLimit: 24
+
+# 悬停
+Hover:
+  ShowAKA: Yes
+
+# 编译标志
+CompileFlags:
+  CompilationDatabase: .
+  Add: -ferror-limit=0
+...
+
+# 额外特殊项
+---
+# 编辑期warning(非编译期的warning)
+CompileFlags:
+  Remove: [
+    # Wno-ordered-compare-function-pointers,
+    # ....
+  ]
+  Add: [
+    -Wunreachable-code,
+    # ....
+  ]
+...
+
+# FIXME: "" or <>         https://github.com/llvm/llvm-project/pull/67749
+# FIXME: Hover doxygen    https://github.com/clangd/clangd/issues/529
